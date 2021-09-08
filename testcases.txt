@@ -1,0 +1,207 @@
+//===========================================================test cases================================================//
+
+
+input: ./tokenizer "array[xyz] += p 3.1415e-10"
+
+output:
+word: "array" 
+left bracket: "[" 
+word: "xyz" 
+right bracket: "]" 
+plus equals: "+=" 
+word: "pi" 
+float: "3.1415e-10" 
+
+////////////////////////////////////////////////////////////////////////
+
+
+input: ./tokenizer "0x4356abdc 0777 [] "
+
+output:
+hexadecimal integer: "0x4356abdc" 
+octal integer: "0777" 
+left bracket: "[" 
+right bracket: "]" 
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+input: ./tokenizer "numbers-- 07872 023242 09.2 03.2 3.2 9.2 9328 77 0x0282fed 00.x03293"
+
+output:
+word: "numbers" 
+decrement: "--" 
+decimal integer: "07872" 
+octal integer: "023242" 
+float: "09.2" 
+float: "03.2" 
+float: "3.2" 
+float: "9.2" 
+decimal integer: "9328" 
+decimal integer: "77" 
+hexadecimal integer: "0x0282fed" 
+octal integer: "00" 
+structure member: "." 
+word: "x03293"
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+input: ./tokenizer "words | hello || how ||| are||| you?"
+
+output:
+word: "words" 
+bitwise OR: "|" 
+word: "hello" 
+logical OR: "||" 
+word: "how" 
+logical OR: "||" 
+bitwise OR: "|" 
+word: "are" 
+logical OR: "||" 
+bitwise OR: "|" 
+word: "you" 
+conditional true: "?"
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+input ./tokenizer 'hardmode <>>>,..kseif 0x38293fedsizeofinttokens?,,,,|||?90()()[][]['
+
+
+output:
+
+word: "hardmode" 
+less than test: "<" 
+shift right: ">>" 
+greater than test: ">" 
+comma: "," 
+structure member: "." 
+structure member: "." 
+word: "kseif" 
+hexadecimal integer: "0x38293fed" 
+sizeof: "sizeof" 
+int: "int" 
+word: "tokens" 
+conditional true: "?" 
+comma: "," 
+comma: "," 
+comma: "," 
+comma: "," 
+logical OR: "||" 
+bitwise OR: "|" 
+conditional true: "?" 
+decimal integer: "90" 
+left parenthesis: "(" 
+right parenthesis: ")" 
+left parenthesis: "(" 
+right parenthesis: ")" 
+left bracket: "[" 
+right bracket: "]" 
+left bracket: "[" 
+right bracket: "]" 
+left bracket: "[" 
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+input: ./tokenizer 'keywordtest || sizeof size of sint intsize intsizeofint integer int inty integer'
+
+output:
+word: "keywordtest" 
+logical OR: "||" 
+sizeof: "sizeof" 
+word: "size" 
+word: "of" 
+word: "sint" 
+word: "intsize" 
+word: "intsizeofint" 
+word: "integer" 
+keyword: "int" 
+word: "inty" 
+word: "integer" 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+input: ./tokenizer  '[],(),.,-,->,--,-=,+,++,+=,=,==,!,!=,~,>,>=,>>,>>=,<,<<,<=,<<=,^,^=,|,||,|=, /, /=, &, &&, &=, ?, :, *, *=, %,%= '
+
+output:
+
+left bracket: "[" 
+right bracket: "]" 
+comma: "," 
+left parenthesis: "(" 
+right parenthesis: ")" 
+comma: "," 
+structure member: "." 
+comma: "," 
+minus/subtract operator: "-" 
+comma: "," 
+structure pointer: "->" 
+comma: "," 
+decrement: "--" 
+comma: "," 
+minus equals: "-=" 
+comma: "," 
+addition: "+" 
+comma: "," 
+increment: "++" 
+comma: "," 
+plus equals: "+=" 
+comma: "," 
+assignment: "=" 
+comma: "," 
+equality test: "==" 
+comma: "," 
+negate: "!" 
+comma: "," 
+inequality test: "!=" 
+comma: "," 
+1s complement: "~" 
+comma: "," 
+greater than test: ">" 
+comma: "," 
+greater than or equal test: ">=" 
+comma: "," 
+shift right: ">>" 
+comma: "," 
+shift right equals: ">>=" 
+comma: "," 
+less than test: "<" 
+comma: "," 
+shift left: "<<" 
+comma: "," 
+less than or equal test: "<=" 
+comma: "," 
+shift left equals: "<<=" 
+comma: "," 
+bitwise XOR: "^" 
+comma: "," 
+bitwise XOR equals: "^=" 
+comma: "," 
+bitwise OR: "|" 
+comma: "," 
+logical OR: "||" 
+comma: "," 
+bitwise OR equals: "|=" 
+comma: "," 
+division: "/" 
+comma: "," 
+divide equals: "/=" 
+comma: "," 
+AND/address operator: "&" 
+comma: "," 
+logical AND: "&&" 
+comma: "," 
+bitwise AND equals: "&=" 
+comma: "," 
+conditional true: "?" 
+comma: "," 
+conditional false: ":" 
+comma: "," 
+multiply/dereference operator: "*" 
+comma: "," 
+times equals: "*=" 
+multiply/dereference operator: "," 
+mod: "%" 
+comma: "," 
+mod equals: "%=" 
+
